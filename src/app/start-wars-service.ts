@@ -1,12 +1,12 @@
 export class StarWarsService {
     private characters = [
                             {
-                            name: 'Luke Skywalker',
-                            side: ''
+                                name: 'Luke Skywalker',
+                                side: ''
                             },
                             {
-                            name: 'Darth Vader',
-                            side: ''
+                                name: 'Darth Vader',
+                                side: ''
                             }
                         ];
     
@@ -17,5 +17,12 @@ export class StarWarsService {
         return this.characters.filter((char) => {
             return char.side === chosenList;
         })
+    }
+
+    onSideAssigned($event) {
+        const pos = this.characters.findIndex((char) => {
+          return (char.name === $event.name);
+        });
+        this.characters[pos].side = $event.side;
     }
 }
