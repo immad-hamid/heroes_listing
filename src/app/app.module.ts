@@ -1,6 +1,8 @@
+// angular dependencies
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// components
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
@@ -9,6 +11,7 @@ import { ItemComponent } from './item/item.component';
 
 // services
 import { StarWarsService } from './start-wars-service';
+import { LogService } from './log.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { StarWarsService } from './start-wars-service';
   imports: [
     BrowserModule
   ],
-  providers: [StarWarsService],
+  providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
