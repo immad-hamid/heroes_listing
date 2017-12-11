@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-create-character',
+  templateUrl: './create-character.component.html',
+  styleUrls: ['./create-character.component.scss']
+})
+export class CreateCharacterComponent implements OnInit {
+  availableSides = [
+    {
+      display: 'None',
+      value: ''
+    },
+    {
+      display: 'Light',
+      value: 'light'
+    },
+    {
+      display: 'Dark',
+      value: 'dark'
+    }
+  ];
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  onSubmit(submittedDetails) {
+    console.log(submittedDetails);
+  }
+
+}
