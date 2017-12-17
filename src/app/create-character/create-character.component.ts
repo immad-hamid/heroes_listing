@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarWarsService } from '../start-wars-service';
 
 @Component({
   selector: 'app-create-character',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-character.component.scss']
 })
 export class CreateCharacterComponent implements OnInit {
+  starWar: StarWarsService;
+
   availableSides = [
     {
-      display: 'None',
+      display: '',
       value: ''
     },
     {
@@ -21,13 +24,19 @@ export class CreateCharacterComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(starWar: StarWarsService) {
+    this.starWar = starWar;
+   }
 
   ngOnInit() {
   }
 
   onSubmit(submittedDetails) {
+    if(submittedDetails.invalid ) {
+      return;
+    }
     console.log(submittedDetails);
+    this.starWar.addCharacter(submittedDetails.value.name, submittedDetails.value.side);
   }
 
 }

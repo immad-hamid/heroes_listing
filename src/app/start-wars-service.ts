@@ -13,6 +13,10 @@ export class StarWarsService {
                             {
                                 name: 'Darth Vader',
                                 side: ''
+                            },
+                            {
+                                name: 'Immad',
+                                side: ''
                             }
                         ];
     
@@ -35,5 +39,16 @@ export class StarWarsService {
         });
         this.characters[pos].side = $event.side;
         this.logService.writeLog("We have a new log: " + $event.name + " has joined the " + $event.side + " force side")
+    }
+
+    addCharacter(name, side) {
+        const pos = this.characters.findIndex((char) => {
+            return char.name === name;
+        });
+        if (pos !== -1) {
+            return;
+        } 
+        const newChar = {name: name, side: side};
+        this.characters.push(newChar);
     }
 }
