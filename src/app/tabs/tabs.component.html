@@ -1,17 +1,17 @@
 <div>
-    <ul class="nav nav-tabs">
-      <li role="presentation" routerLinkActive="active">
-        <a (click)="onChoose('all')" routerLink="/heros/all" style="cursor: pointer">All</a>
-      </li>
-      <li role="presentation" routerLinkActive="active">
-        <a (click)="onChoose('light')" routerLink="/heros/light" style="cursor: pointer" >Light</a>
-      </li>
-      <li role="presentation" routerLinkActive="active">
-        <a (click)="onChoose('dark')" routerLink="/heros/dark" style="cursor: pointer" >Dark</a>
-      </li>
-    </ul>
-    <!-- <app-list [characters]="getCharacters()"
-              (sideAssigned)="onSideAssigned($event)">
-    </app-list> -->
-    <router-outlet></router-outlet>
-  </div>
+  <ul class="nav nav-tabs">
+    <li role="presentation" routerLinkActive="active">
+      <a routerLink="/heros/all" style="cursor: pointer">All</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+      <a routerLink="/heros/light" style="cursor: pointer" >Light</a>
+    </li>
+    <li role="presentation" routerLinkActive="active">
+      <a routerLink="/heros/dark" style="cursor: pointer" >Dark</a>
+    </li>
+  </ul>
+  <!-- <app-list [characters]="getCharacters()"
+            (sideAssigned)="onSideAssigned($event)">
+  </app-list> -->
+  <router-outlet></router-outlet>
+</div>

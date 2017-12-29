@@ -16,6 +16,8 @@ import { LogService } from './log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
 
+
+// routes
 const routes = [
   {path: 'heros', component: TabsComponent, children:[
     {path: '', redirectTo: 'all', pathMatch: 'full'},
