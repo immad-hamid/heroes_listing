@@ -11,7 +11,7 @@ export class ListComponent implements OnInit, OnDestroy {
   characters = [];
   activatedRoute: ActivatedRoute;
   swService: StarWarsService;
-  loadedSide = "all";
+  loadedSide = 'all';
   subscription;
 
   constructor(activatedRoute: ActivatedRoute, swService: StarWarsService) {

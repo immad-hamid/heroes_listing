@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { LogService } from "./log.service";
-import { Subject } from "rxjs/Subject";
-import { Http, Response } from "@angular/http";
+import { Injectable } from '@angular/core';
+import { LogService } from './log.service';
+import { Subject } from 'rxjs/Subject';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -13,12 +13,11 @@ export class StarWarsService {
                             { name: 'Darth Vader', side: '' },
                             { name: 'Immad', side: '' }
                         ];
-    
     public charactersChanged = new Subject<void>();
 
     public http: Http;
 
-    public api:string = 'https://swapi.co/api/';
+    public api = 'https://swapi.co/api/';
 
     constructor(logService: LogService, http: Http) {
         this.logService = logService;
@@ -42,7 +41,6 @@ export class StarWarsService {
                     this.charactersChanged.next();
                 }
             );
-        
         // Same thing above for plain javascript
         // var _this = this;
         // this.http.get(this.api + 'people/')
@@ -69,7 +67,7 @@ export class StarWarsService {
         }
         return this.characters.filter((char) => {
             return char.side === chosenList;
-        })
+        });
     }
 
     onSideAssigned($event) {
@@ -78,7 +76,7 @@ export class StarWarsService {
         });
         this.characters[pos].side = $event.side;
         this.charactersChanged.next();
-        this.logService.writeLog("We have a new log: " + $event.name + " has joined the " + $event.side + " force side")
+        this.logService.writeLog('We have a new log: ' + $event.name + ' has joined the ' + $event.side + ' force side');
     }
 
     addCharacter(name, side) {
@@ -87,7 +85,7 @@ export class StarWarsService {
         });
         if (pos !== -1) {
             return;
-        } 
+        }
         const newChar = {name: name, side: side};
         this.characters.push(newChar);
     }
